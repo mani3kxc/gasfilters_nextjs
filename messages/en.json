@@ -1,0 +1,23 @@
+{
+  "Index": {
+    "menu_title_1": "About Us",
+    "menu_subtitle_1": "Briefly about our company",
+    "menu_title_2": "Products",
+    "menu_subtitle_2": "Destenching Columns we provide",
+    "menu_title_3": "References",
+    "menu_subtitle_3": "Feel free to contact us",
+    "menu_title_4": "Contact",
+    "menu_subtitle_4": "Feel free to contact us",
+    "address_title": "Address:",
+    "address_content": "ul. Opolska 22/ 204-C<br/>40-084 Katowice<br/>POLAND<br/>",
+    "phone_title": "Phone:",
+    "email_title": "Email:"
+  },
+  "Header": {
+    "home": "HOME",
+    "about": "ABOUT!"
+  },
+  "LocaleSwitcher": {
+    "locale": "{locale, select, de {DE} en {English} other {Unknown}}"
+  }
+}
