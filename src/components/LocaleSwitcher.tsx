@@ -2,7 +2,8 @@
 
 'use client'
 import { useLocale, useTranslations } from 'next-intl';
-import { usePathname, useRouter } from '../navigation';
+import { usePathname, useRouter, Link} from '../navigation';
+import {useEffect} from "react";
 
 
 export default function LocaleSwitcher() {
@@ -12,22 +13,22 @@ export default function LocaleSwitcher() {
     const pathname = usePathname();
 
 
+    useEffect(()=>{
+        console.log(locale)
+    })
+
     const onLocaleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         const newLocale = e.target.value;
         router.replace(pathname, { locale: newLocale });
     }
 
 
-    return (
-        <select
-            defaultValue={locale}
-            onChange={onLocaleChange}
-        >
+    return (<>
             {['en', 'pl'].map((lang) => (
-                <option key={lang} value={lang}>
-                    {t('locale', { locale: lang })}
-                </option>
+                <Link key={lang} href="/" locale={lang!}>
+            {lang}
+           </Link>
             ))}
-        </select>
+        </>
     )
 }

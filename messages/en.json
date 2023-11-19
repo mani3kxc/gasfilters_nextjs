@@ -18,6 +18,6 @@
     "about": "ABOUT!"
   },
   "LocaleSwitcher": {
-    "locale": "{locale, select, de {DE} en {English} other {Unknown}}"
+    "locale": "{locale, select, en {EN} pl {PL} other {Unknown}}"
   }
 }

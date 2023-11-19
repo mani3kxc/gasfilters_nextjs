@@ -2,16 +2,18 @@
 import React, {useState} from 'react';
 import styles from "./Header.module.css";
 
-import bg from 'public/background4.jpg'
+import bg from 'public/background9.jpg'
 
-import Link from "next/link";
-import {useTranslations} from "next-intl";
+import {useLocale, useTranslations} from "next-intl";
 import MenuLink from "@/components/MenuLink";
+import {Link} from '../../navigation';
 
 
 function Header(props) {
 
-    const { t } = useTranslations('Index')
+
+    const t = useTranslations('Index');
+    const locale = useLocale();
 
     const [address, setAddress] = useState('');
 
@@ -22,13 +24,14 @@ function Header(props) {
     }
 
     return (
-        <div className={styles.headerContainer} id="top" style={{backgroundSize: "cover" }}>
+        <div className={styles.headerContainer} id="top" style={{backgroundSize: "cover", backgroundImage: `url(${bg.src})` }}>
             <nav className={`${styles.navContainer} ${props.showMenu ? styles.showMenu : null}`}>
                 <div className={styles.navInnerContainer}>
                  <div className={styles.languageButtons}>
                     <a onClick={props.changeLang.bind(this, "en")} className={`${props.language==='en' ? 'selected' : ''}`}>EN</a>
                     <a onClick={props.changeLang.bind(this, "pl")} className={`${props.language==='pl' ? 'selected' : ''}`}>PL</a>
-                    </div>
+
+                 </div>
                 <div>
                     <MenuLink onAction={props.goTo.bind(this, "top")} active={props.selectedItem==0}>HOME</MenuLink>
                     <MenuLink onAction={props.goTo.bind(this, "about")} active={props.selectedItem==1}>{t('menu_title_1')}</MenuLink>
@@ -53,8 +56,8 @@ function Header(props) {
             <main className={`${styles.main}`}>
                 <div className={styles.description}>
                         <div className={styles.languageButtons}>
-                            <a onClick={props.changeLang.bind(this, "en")} className={`${props.language==='en' ? 'selected' : ''}`}>EN</a>
-                            <a onClick={props.changeLang.bind(this, "pl")} className={`${props.language==='pl' ? 'selected' : ''}`}>PL</a>
+                            <Link className={`${locale==='en' ? 'selected' : ''}`} href="/" locale="en">EN</Link>
+                            <Link className={`${locale==='pl' ? 'selected' : ''}`} href="/" locale="pl">PL</Link>
                         </div>
                     <div>
                         <a
